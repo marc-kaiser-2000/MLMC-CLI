@@ -14,6 +14,7 @@ venv:
 	$(VENV_BIN)/pip install -U pip
 	$(VENV_BIN)/pip install .
 	$(VENV_BIN)/pip install .[dev]
+	$(VENV_BIN)/$(PYTHON) -m pip install -e .
 
 .PHONY:lint
 lint:
@@ -41,7 +42,7 @@ format-check:
 
 .PHONY:test
 test:  
-	$(VENV_BIN)/pytest
+	$(VENV_BIN)/$(PYTHON) -m unittest discover -p '*tests.py' -v
 
 .PHONY:all
 all: lint typecheck format-check test

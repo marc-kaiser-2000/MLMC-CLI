@@ -12,7 +12,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pylint","black","isort","mypy", "pytest"]
+dev = ["pylint","black","isort","mypy"]
 
 [project.scripts]
 mcl = "commands.cli:cli"
