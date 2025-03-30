@@ -1,7 +1,26 @@
 import click
 
+
 @click.group(name="basket")
-@click.option("--name", default="World", help="Name to greet")
-def basket(name):
+def basket():
     """Basket commands"""
-    pass
+
+
+@basket.command()
+def show():
+    """Show the current "config.yaml" file."""
+    click.echo("Showing configuration...")
+
+
+@basket.command()
+@click.option(
+    "--path", required=False, help="Absolute or relative path to load 'basket.yaml'"
+)
+def load(path):
+    """Load a 'config.yaml' file, apply and serialize it."""
+    click.echo("Loading basket...")
+
+
+if __name__ == "__main__":
+    load(".")
+    show()

@@ -5,6 +5,14 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "monte-carlo-learning"
 version = "1.0.0"
+description = "A monte carlo learning package to estimate the value of option baskets."
+requires-python =  ">=3.12"
+dependencies = [
+    "click"
+]
+
+[project.optional-dependencies]
+dev = ["pylint","black","isort","mypy", "pytest"]
 
 [project.scripts]
 mcl = "commands.cli:cli"

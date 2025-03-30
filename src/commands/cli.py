@@ -4,11 +4,11 @@ from commands.subcommands.basket import basket
 from commands.subcommands.config import config
 from commands.subcommands.model import model
 
+
 @click.group()
-@click.version_option(version="1.0.0")
 def cli():
-    """My CLI application with commands in multiple files."""
-    pass
+    """Monte Carlo Learning CLI."""
+
 
 # Register commands
 cli.add_command(basket)

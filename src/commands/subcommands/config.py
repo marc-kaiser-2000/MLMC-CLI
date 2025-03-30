@@ -1,18 +1,25 @@
 import click
 
+
 @click.group(name="config")
 def config():
     """Config commands"""
-    pass
+
 
 @config.command()
 def show():
-    """Show the current configuration."""
+    """Show the current "config.yaml" configuration."""
     click.echo("Showing configuration...")
 
+
 @config.command()
-@click.option("--key", required=True, help="Configuration key")
-@click.option("--value", required=True, help="Configuration value")
-def set(key, value):
-    """Set a configuration value."""
-    click.echo(f"Setting {key}={value}")
+@click.option(
+    "--path", required=False, help="Absolute or relative path to load 'config.yaml'"
+)
+def load(path):
+    """Load a configuration file, apply and serialize it."""
+    click.echo("Loading configuration")
+
+if __name__ == "__main__":
+    load(".")
+    show()
