@@ -8,7 +8,8 @@ version = "1.0.0"
 description = "A monte carlo learning package to estimate the value of option baskets."
 requires-python =  ">=3.12"
 dependencies = [
-    "click"
+    "click",
+    "pyyaml"
 ]
 
 [project.optional-dependencies]

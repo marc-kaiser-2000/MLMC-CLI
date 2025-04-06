@@ -1,5 +1,8 @@
+import logging
 import click
+from typing import Optional
 
+logger = logging.getLogger(__name__)
 
 @click.group(name="basket")
 def basket():
@@ -9,6 +12,7 @@ def basket():
 @basket.command()
 def show():
     """Show the current "config.yaml" file."""
+    logger.info()
     click.echo("Showing configuration...")
 
 
@@ -16,9 +20,12 @@ def show():
 @click.option(
     "--path", required=False, help="Absolute or relative path to load 'basket.yaml'"
 )
-def load(path):
+def load(path:Optional[str]):
     """Load a 'config.yaml' file, apply and serialize it."""
-    click.echo("Loading basket...")
+    if path is None:
+        path = "."
+
+    click.echo(f'Loading basket from {path}')
 
 
 if __name__ == "__main__":
